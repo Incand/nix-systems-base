@@ -28,6 +28,16 @@
         darwin-version
         darwin-uninstaller
       ];
+    };
 
+  flake.modules.nixos.system-desktop =
+    {
+      pkgs,
+      ...
+    }:
+    {
+      imports = with inputs.self.modules.nixos; [
+        system-cli
+      ];
     };
 }
