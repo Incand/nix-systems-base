@@ -10,6 +10,7 @@
       neovim-lsp
 
       neovim-nix
+      neovim-java
     ];
 
     programs.neovim = {
