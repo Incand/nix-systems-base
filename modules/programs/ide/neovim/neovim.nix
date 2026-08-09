@@ -5,6 +5,8 @@
       neovim-nerdtree
       neovim-git
       neovim-terminal
+      neovim-statusline
+
       neovim-nix
     ];
 
