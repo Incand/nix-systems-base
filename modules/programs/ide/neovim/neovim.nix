@@ -2,9 +2,8 @@
   flake.modules.homeManager.neovim = { pkgs, ... }:
   {
     imports = with inputs.self.modules.homeManager; [
-      neovim-nerdtree
+      neovim-panels
       neovim-git
-      neovim-terminal
       neovim-statusline
       neovim-telescope
       neovim-qol
