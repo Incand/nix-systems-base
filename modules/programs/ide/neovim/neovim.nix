@@ -7,6 +7,7 @@
       neovim-terminal
       neovim-statusline
       neovim-telescope
+      neovim-qol
 
       neovim-nix
     ];
