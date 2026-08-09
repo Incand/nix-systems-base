@@ -3,6 +3,7 @@
   {
     imports = with inputs.self.modules.homeManager; [
       neovim-nerdtree
+      neovim-nix
     ];
 
     programs.neovim = {
