@@ -6,6 +6,7 @@
       neovim-git
       neovim-terminal
       neovim-statusline
+      neovim-telescope
 
       neovim-nix
     ];

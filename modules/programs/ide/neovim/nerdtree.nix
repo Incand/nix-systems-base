@@ -3,7 +3,6 @@
     programs.neovim = {
       plugins = with pkgs.vimPlugins; [
         nerdtree
-        ctrlp
       ];
 
       extraConfig = ''
