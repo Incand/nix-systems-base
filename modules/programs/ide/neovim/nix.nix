@@ -26,15 +26,13 @@
                 },
               },
             })
-          '';
-        }
-        {
-          plugin = nvim-lspconfig;
-          type = "lua";
-          config = ''
-            require('lspconfig').nil_ls.setup({
+            vim.lsp.config('nil_ls', {
+              cmd = { 'nil' },
+              filetypes = { 'nix' },
+              root_markers = { 'flake.nix', '.git' },
               capabilities = require('blink.cmp').get_lsp_capabilities(),
             })
+            vim.lsp.enable('nil_ls')
           '';
         }
         {
