@@ -4,6 +4,7 @@
     imports = with inputs.self.modules.homeManager; [
       neovim-nerdtree
       neovim-git
+      neovim-terminal
       neovim-nix
     ];
 
