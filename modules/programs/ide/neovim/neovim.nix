@@ -11,6 +11,7 @@
 
       neovim-nix
       neovim-java
+      neovim-kotlin
     ];
 
     programs.neovim = {
