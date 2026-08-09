@@ -8,6 +8,7 @@
       neovim-telescope
       neovim-qol
       neovim-lsp
+
       neovim-nix
     ];
 
