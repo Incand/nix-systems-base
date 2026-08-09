@@ -1,5 +1,15 @@
+{ lib, config, ... }:
+let
+  nerdFont = config.neovim.nerdFont;
+in
 {
-  flake.modules.homeManager.neovim-nix = { pkgs, ... }: {
+  options.neovim.nerdFont = lib.mkOption {
+    type = lib.types.bool;
+    default = false;
+    description = "Whether a Nerd Font is available in the terminal.";
+  };
+
+  config.flake.modules.homeManager.neovim-nix = { pkgs, ... }: {
     programs.neovim = {
       extraConfig = ''
         autocmd FileType nix setlocal tabstop=2 softtabstop=2 shiftwidth=2
@@ -20,6 +30,21 @@
                 preset = 'default',
                 ['<Tab>'] = { 'accept', 'fallback' },
               },
+              ${lib.optionalString (!nerdFont) ''
+              appearance = {
+                kind_icons = {
+                  Text          = 'Txt', Method       = 'Mth', Function     = 'Fn',
+                  Constructor   = 'New', Field        = 'Fld', Variable     = 'Var',
+                  Class         = 'Cls', Interface    = 'Int', Module       = 'Mod',
+                  Property      = 'Prp', Unit         = 'Unt', Value        = 'Val',
+                  Enum          = 'Enm', Keyword      = 'Kwd', Snippet      = 'Snp',
+                  Color         = 'Clr', File         = 'Fil', Reference    = 'Ref',
+                  Folder        = 'Dir', EnumMember   = 'EnM', Constant     = 'Con',
+                  Struct        = 'Str', Event        = 'Evt', Operator     = 'Op',
+                  TypeParameter = 'T',
+                },
+              },
+              ''}
               completion = {
                 list = {
                   selection = { preselect = true },
