@@ -9,6 +9,7 @@
       neovim-telescope
       neovim-qol
       neovim-lsp
+      neovim-conform
 
       neovim-nix
       neovim-java

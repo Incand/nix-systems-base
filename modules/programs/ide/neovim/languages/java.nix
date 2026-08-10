@@ -1,5 +1,8 @@
 { ... }:
 {
+  neovim.conform.formatters.java = [ "google-java-format" ];
+  neovim.conform.timeouts.java = 10000;
+
   flake.modules.homeManager.neovim-java =
     { pkgs, lib, bundleJvmToolchain ? true, ... }:
     let
@@ -63,11 +66,6 @@
                     ),
                   })
                 end,
-              })
-              require('conform').setup({
-                formatters_by_ft = {
-                  java = { 'google-java-format' },
-                },
               })
             '';
           }

@@ -1,5 +1,8 @@
 { inputs, ... }:
 {
+  neovim.conform.formatters.kotlin = [ "ktlint" ];
+  neovim.conform.timeouts.kotlin = 10000;
+
   flake.modules.homeManager.neovim-kotlin =
     { pkgs, lib, bundleJvmToolchain ? true, ... }:
     let
@@ -57,11 +60,6 @@
             root_markers = { 'build.gradle', 'build.gradle.kts', 'settings.gradle.kts', '.git' },
           })
           vim.lsp.enable('kotlin_language_server')
-          require('conform').setup({
-            formatters_by_ft = {
-              kotlin = { 'ktlint' },
-            },
-          })
         '';
       };
     };

@@ -3,6 +3,8 @@ let
   nerdFont = config.neovim.nerdFont;
 in
 {
+  config.neovim.conform.formatters.nix = [ "nixfmt" ];
+
   options.neovim.nerdFont = lib.mkOption {
     type = lib.types.bool;
     default = false;
@@ -58,20 +60,6 @@ in
               capabilities = require('blink.cmp').get_lsp_capabilities(),
             })
             vim.lsp.enable('nil_ls')
-          '';
-        }
-        {
-          plugin = conform-nvim;
-          type = "lua";
-          config = ''
-            require('conform').setup({
-              formatters_by_ft = {
-                nix = { 'nixfmt' },
-              },
-              format_on_save = {
-                timeout_ms = 500,
-              },
-            })
           '';
         }
         (nvim-treesitter.withPlugins (p: [ p.nix ]))
