@@ -34,8 +34,8 @@
       ];
 
       extraConfig = ''
-        " Open NERDTree on startup, then move focus back to the main buffer
-        autocmd VimEnter * NERDTree | wincmd p
+        " Open NERDTree on startup, unless a session is being restored (persistence.nvim handles it)
+        autocmd VimEnter * if !get(g:, 'restoring_session', 0) | NERDTree | wincmd p | endif
         " Quit nvim when NERDTree is the last remaining window
         autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
       '';
