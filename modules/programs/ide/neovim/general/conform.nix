@@ -37,7 +37,7 @@ in
             formatters_by_ft = {
         ${formattersLua}
             },
-            format_on_save = function(bufnr)
+            format_after_save = function(bufnr)
               local timeouts = { ${timeoutsLua} }
               local ft = vim.bo[bufnr].filetype
               return { timeout_ms = timeouts[ft] or ${toString cfg.defaultTimeout} }
