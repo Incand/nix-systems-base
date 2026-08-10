@@ -1,5 +1,6 @@
 ''
   set nocompatible
+  set exrc
   filetype off
   syntax on
   set nu
