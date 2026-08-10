@@ -60,6 +60,12 @@
             root_markers = { 'build.gradle', 'build.gradle.kts', 'settings.gradle.kts', '.git' },
           })
           vim.lsp.enable('kotlin_language_server')
+
+          require('conform').formatters.ktlint = {
+            command = 'ktlint',
+            args = { '--format', '--stdin', '--log-level=none' },
+            cwd = function(ctx) return ctx.dirname end,
+          }
         '';
       };
     };
