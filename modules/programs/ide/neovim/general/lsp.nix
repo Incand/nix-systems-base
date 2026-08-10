@@ -1,6 +1,15 @@
 {
   flake.modules.homeManager.neovim-lsp = { pkgs, ... }: {
     programs.neovim.extraLuaConfig = ''
+      vim.api.nvim_create_autocmd('VimEnter', {
+        callback = function()
+          local nvim_lua = vim.fn.getcwd() .. '/.nvim.lua'
+          if vim.fn.filereadable(nvim_lua) == 1 then
+            vim.cmd('luafile ' .. vim.fn.fnameescape(nvim_lua))
+          end
+        end,
+      })
+
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(ev)
           local opts = { buffer = ev.buf }
